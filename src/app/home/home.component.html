@@ -1,0 +1,5 @@
+<h3>JSON Web Test</h3>
+
+<button *ngIf="!isLoggedIn" (click)="signIn()">Sign In</button>  <!-- to hide and show element we use ngIf -->
+<button (click)="getPath()">Get Path 1</button>
+<button *ngIf="isLoggedIn" (click)="doLogout()">logout</button>

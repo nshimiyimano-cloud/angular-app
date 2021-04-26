@@ -1,0 +1,9 @@
+.glyphicon{
+  color:#ccc;
+  cursor: pointer;
+}
+/* and we want to stle our custom class'hiighlighted when isActive is true' */
+
+.highlighted{
+  color:deeppink;
+}

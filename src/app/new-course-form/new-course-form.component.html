@@ -1,0 +1,18 @@
+<form>
+
+
+  <input type="text" class="form-control"  placeholder="enter array of courses in this input by each press enter"   (keyup.enter)="addTopic(topic)"   #topic><!-- we pass that #topic in addtpc(topic)  as argument-->
+
+
+  <!-- to display entered topic in this inputtext we use bootstrap list group -->
+<ul  class="list-group">
+
+  <li *ngFor="let topic of topics.controls"    class="list-group-item">
+{{topic.value}}
+<span style="cursor: pointer;float:right;"  (click)="removeTopic(topic)"><mat-icon>close</mat-icon></span>   <!-- close button -->
+  </li>
+</ul>
+
+
+
+

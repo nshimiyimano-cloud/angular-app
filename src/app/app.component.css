@@ -1,0 +1,71 @@
+button{
+  margin-right: 3rem;
+}
+
+/* div{
+  margin: 3rem;
+} */
+/* toolbar to make it as navbar */
+.navBar{
+  justify-content: space-between;
+}
+span{
+  padding-right: 2rem;
+}
+
+/* sidenav */
+
+mat-sidenav-container{
+  height: 100%;
+}
+mat-sidenav,mat-sidenav-content{
+  padding: 16px;
+}
+mat-sidenav{
+  width:300px;
+  background-color: lightcoral;
+}
+
+/* to see x-position and y-position on mat-menu by defaul menu opened at xPositon='before' and yPosition='above' */
+
+.center{
+  margin: 10rem;
+}
+
+mat-grid-tile{
+  background-color: lightblue;
+}
+
+
+table {
+  width: 100%;
+}
+
+/* for scrolling div*/
+.numbers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid maroon;
+  box-sizing: border-box;
+  height:100px;
+}
+.container{
+  height:400px;
+}
+mat-toolbar>a{
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+  text-decoration: none;
+
+}
+mat-toolbar>a:visited{
+  background-color: deeppink;
+}
+input[type]{
+  visibility: hidden;
+}
+
+
+
+

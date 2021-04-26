@@ -1,0 +1,165 @@
+
+
+
+
+<new-course-form></new-course-form>
+<button mat-button (click)="openDialog()">open modal</button>
+
+<zippy title="shipping details">
+
+
+
+
+
+  shipping details content
+
+  </zippy>
+<!-- our form on  template driven form -->
+<!-- <contact-form></contact-form> not this becouse we use is in route -->
+
+<mat-toolbar [style.backgroundColor]="backgroungColor">
+
+
+  <a  *ngIf="this.authService.isLoggedIn()" class="nav-link" routerLinkActive="active" routerLink="home">Home</a>&nbsp;&nbsp;
+
+  <a  *ngIf="this.authService.isLoggedIn()" routerLinkActive="active" routerLink="addEmployee">Add Employee</a>&nbsp;&nbsp;
+  <a *ngIf="this.authService.isLoggedIn()"  routerLinkActive="active" routerLink="employee-list">our Employeee</a>&nbsp;&nbsp;
+  <a  routerLinkActive="active current" routerLink="favoritetrain">star</a>&nbsp;&nbsp;
+  <a  *ngIf="this.authService.isLoggedIn()" routerLinkActive="active current" routerLink="signup">sign Up</a>&nbsp;&nbsp;
+  <a  *ngIf="this.authService.isLoggedIn()" routerLinkActive="active current" routerLink="changePassword">Change Password</a>&nbsp;&nbsp;
+  <a class="nav-link" routerLinkActive="active" routerLink="sign-up">Create Account</a>&nbsp;&nbsp;
+  <a   class="nav-link" routerLinkActive="active" routerLink="log-in">Login</a>&nbsp;&nbsp;
+
+  <a class="nav-link" routerLinkActive="active" routerLink="contact">Contact Us</a>&nbsp;&nbsp;
+  <a  *ngIf="this.authService.isLoggedIn()" class="nav-link" (click)="logout()">logout</a>&nbsp;&nbsp;
+
+
+
+
+  <!--  we want to use prop bind for this <a class="nav-link" routerLinkActive="active" routerLink="panel">panel</a>&nbsp;&nbsp; -->
+
+
+ </mat-toolbar>
+ <div>
+<router-outlet></router-outlet>
+</div>
+
+
+ <favorite [is-favorite]="post.isFavorite"  (mychange)="onFavoriteChanged($event)"></favorite>
+
+
+ <!-- here is where we use ng-content -->
+<bootstrap-panel>
+<ng-container class="heading">
+  HEADING
+</ng-container>
+
+<div class="body">
+<p>They are used to create configurable components. This means the components can be configured depending on the needs of its user. This is well known as Content Projection. Components that are used in published libraries make use of ng-content to make themselves configurable.</p>
+
+</div>
+</bootstrap-panel>
+
+<like
+
+[likesCount]="tweet.likesCount"
+[isActive]="tweet.isLiked"
+>
+
+</like>
+<br>  <!-- like with heaRT icon -->
+
+
+
+
+
+<!-- we gonna use our custom directive here for onfocus & onBlur event -->
+
+<input type="text"  [appInputFormat]="'uppercase'"><br> <br> <!-- we use the same as its directive as the same to set format target  with alias but to use onlly on binding on input is well when you have one directive to control dom el-->    <!-- instead use other binding again   [format]="'lowercase'" but is one format directive-->
+
+
+<!-- exercise zippy component  on reusable component-->
+
+<!-- ngSwitch -->
+
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode=='map'"><a [style.cursor]="'pointer'" (click)="viewMode=map">Map view</a></li>
+  <li [class.active]="viewMode=='list'"><a [style.cursor]="'pointer'" (click)="viewMode=list">List view</a></li>
+  <li [class.active]="viewMode=='other'"><a [style.cursor]="'pointer'" (click)="viewMode=other">other</a></li>
+  <li [class.active]="viewMode=='other'"><a [style.cursor]="'pointer'" (click)="viewMode=other">other</a></li>
+
+  </ul>
+  <div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">map View Content</div>
+     <div *ngSwitchCase="'list'">list view content</div> <!--we want to render above dynamically -->
+     <div *ngSwitchDefault>other tab content</div>
+  </div>
+
+  <!-- use mat-progress-spinner and mat-spinner(this is loading endless) -->
+
+
+
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav [(opened)]="opened"  (opened)="log('sidenav opened')"  (closed)="log('sidenav closed')" mode="side">sidenav</mat-sidenav>   <!-- we can form module to allow open sidenav -->
+
+    <mat-sidenav-content>main content
+
+      <button  (click)="opened=!opened">open sidenav</button>
+      <button  (click)="sidenav.open()">open</button>
+      <button  (click)="sidenav.close()">close</button>
+      <button  (click)="sidenav.toggle()">toggle</button>
+    </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+
+
+    <!-- on menus & submenu -->
+
+
+<mat-menu  #appMenu="matMenu" xPosition="before" yPosition="above">
+  <button mat-menu-item  [matMenuTriggerFor]="frontEndSubMenu">Front end</button>
+  <button mat-menu-item>Back end</button>
+
+  </mat-menu>
+
+  <button class="center" mat-raised-button [matMenuTriggerFor]="appMenu" >menu</button>
+
+
+  <!-- our sub menu -->
+
+  <mat-menu  #frontEndSubMenu="matMenu">
+    <button  mat-menu-item >angular</button>
+    <button  mat-menu-item>react</button>
+    <a href="#"  mat-menu-item>Vue</a>
+
+    </mat-menu>
+
+
+    <!-- lazy menu rendering -->
+
+    <mat-menu #lazyMenu="matMenu">
+
+
+      <ng-template matMenuContent let-name="name"  let-myHobby="hobby">
+  <button mat-menu-item><mat-icon>settings</mat-icon>setting</button>
+  <button mat-menu-item> <mat-icon>logout</mat-icon>logout {{name}}</button>
+  <button mat-menu-item> <mat-icon>favorite</mat-icon>my hobby is {{myHobby}}</button>
+
+      </ng-template>
+    </mat-menu>
+
+    <button mat-raised-button [matMenuTriggerData]="{name:'Vishwas',hobby:'football'}" [matMenuTriggerFor]="lazyMenu"   >Vishwas</button>
+
+  <button mat-raised-button [matMenuTriggerData]="{name:'codevolution',hobby:'teaching'}"  [matMenuTriggerFor]="lazyMenu" >Codevolution</button>
+
+<div>
+<button mat-stroke-button (click)="imagePicker.click()">Pick image</button>
+<input type="file" #imagePicker>
+</div>
+
+
+<!-- https://stackblitz.com/angular/jbxxopxoqvv?file=src%2Fapp%2Fdatepicker-color-example.ts   https://www.youtube.com/watch?v=htPYk6QxacQ angular  max sche    https://www.youtube.com/watch?v=jUfEn032IL8 material-->
+

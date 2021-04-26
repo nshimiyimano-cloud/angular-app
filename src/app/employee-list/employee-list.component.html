@@ -1,0 +1,122 @@
+<!--
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Employee List</h2>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+
+          <th>no</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">lastName</th>
+          <th scope="col">Loacation</th>
+          <th scope="col">age</th>
+          <th scope="col">phone</th>
+          <th scope="col">email</th>
+
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees; let i = index">
+          <th>{{emp._id}}</th>
+          <td>{{emp.firstName}}</td>
+          <td>{{emp.lastName}}</td>
+          <td>{{emp.location}}</td>
+
+          <td>{{emp.age}}</td>
+          <td>{{emp.phone}}</td>
+          <td>{{emp.email}}</td>
+          <td class="text-center">
+            <button color="primary" mat-button routerLink="/edit-employee/{{emp._id}}"><mat-icon>edit</mat-icon> Edit</button>
+            <button  class="btn btn-sm btn-danger" (click)="onDelele(emp._id, i)">Delete</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+ -->
+<input type="email" matInput [(ngModel)]="email">{{email}}<!-- first way data binding -->
+
+
+<div class="example-container mat-elevation-z8">
+  <mat-form-field>
+    <input matInput type="text"  (keyup)="doFilter($event.target)" placeholder="Filter">
+  </mat-form-field>
+
+
+  <mat-table [dataSource]="employees" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row._id}} </mat-cell>
+    </ng-container>
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> firstName </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> last Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
+    </ng-container>
+
+     <!-- Color Column -->
+     <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> location</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.location}} </mat-cell>
+    </ng-container>
+
+     <!-- Color Column -->
+     <ng-container matColumnDef="salary">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.salary}} </mat-cell>
+    </ng-container>
+
+ <!-- Color Column -->
+ <ng-container matColumnDef="age">
+  <mat-header-cell *matHeaderCellDef mat-sort-header> Age</mat-header-cell>
+  <mat-cell *matCellDef="let row"> {{row.age}} </mat-cell>
+</ng-container>
+
+ <!-- Color Column -->
+ <ng-container matColumnDef="phone">
+  <mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </mat-header-cell>
+  <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>
+</ng-container>
+
+ <!-- Color Column -->
+ <ng-container matColumnDef="options">
+  <mat-header-cell *matHeaderCellDef mat-sort-header> other options</mat-header-cell>
+  <mat-cell *matCellDef="let row">
+    <button mat-button [routerLink]="['/edit-employee',row.firstName,row._id,row.location]"  [queryParams]="{page:1,location:row.location}"><mat-icon>edit</mat-icon>Edit</button>
+
+    <!--  u can use bind approach as above or use this both work the same <button mat-button routerLink="/edit-employee/{{row.firstName}}/{{row._id}}"><mat-icon>edit</mat-icon>Edit</button> -->
+    <button mat-button (click)="onDelele(row._id)">delete</button>
+</mat-cell>
+</ng-container>
+
+
+ <!-- Color Column -->
+ <ng-container matColumnDef="email">
+  <mat-header-cell *matHeaderCellDef mat-sort-header> Email</mat-header-cell>
+  <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+</ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="6" [pageSizeOptions]="[5, 8,12,20]"></mat-paginator>  <!-- [pageSize]  is item per page-->
+</div>

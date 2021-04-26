@@ -1,0 +1,12 @@
+<!-- <favorite></favorite>  here to use class possible with bootstrap icon material icon not posible-->
+<span [style.cursor]="'pointer'"
+class="glyphicon" [class.glyphicon-star]="isFavorite"
+class="glyphicon" [class.glyphicon-star-empty]="!isFavorite"
+(click)="onClick()"
+>
+
+
+</span>
+<courses></courses>
+
+  <!-- from CourseComponent we import in in FavoriteComponent --->
