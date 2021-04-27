@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Static directory path or serve static resources
-app.use(express.static(path.join(__dirname, 'study-angular/src')));
+//app.use(express.static(path.join(__dirname, 'study-angular-app/src')));
 
 
 
