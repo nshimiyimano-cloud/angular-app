@@ -1,5 +1,5 @@
 {
-  "name": "study-angular",
+  "name": "study-angular-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -58,12 +58,12 @@
   "main": "karma.conf.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nshimiyimano-cloud/study-angular.git"
+    "url": "git+https://github.com/nshimiyimano-cloud/study-angular-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nshimiyimano-cloud/study-angular/issues"
+    "url": "https://github.com/nshimiyimano-cloud/study-angular-app/issues"
   },
-  "homepage": "https://github.com/nshimiyimano-cloud/study-angular#readme"
+  "homepage": "https://github.com/nshimiyimano-cloud/study-angular-app#readme"
 }
