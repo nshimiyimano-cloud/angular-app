@@ -1,6 +1,8 @@
 # StudyAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+This project built by using angular 11 on part of front end as client side and nodejs with express on backend part as server at the end this project will deployed to heroku side 
+this projectwas generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+
 
 ## Development server
 
